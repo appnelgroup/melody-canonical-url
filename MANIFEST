@@ -1,0 +1,2 @@
+plugins/canonical_url/config.yaml
+plugins/canonical_url/lib/MT/Entry/Canonical.pm

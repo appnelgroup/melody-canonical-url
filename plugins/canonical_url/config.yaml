@@ -1,0 +1,16 @@
+name: Canonical Entry Links
+id: CanonicalURL
+author_link: http://appnel.com/
+author_name: The Appnel Group
+description: Implements canonical URL capabilities for an entry.
+version: 0.1
+schema_version: 0.1
+object_types:
+    entry:
+        canonical_url: string(255)
+callbacks:
+    MT::App::CMS::template_param.edit_entry: $Canonical::MT::Entry::Canonical::add_entry_canonical_url_input
+    MT::App::CMS::cms_pre_save.entry: $Canonical::MT::Entry::Canonical::save_entry_canonical_url
+tags:
+    variable:
+        EntryCanonicalURL: $Canonical::MT::Entry::Canonical::entry_canonical_URL

@@ -19,13 +19,14 @@ sub add_entry_canonical_url_input {
     }
     my $innerHTML;
     $innerHTML =
-      "<input name='canonical_url' id='canonical_url' class='full-width' value='$canonical' mt:watch-change='1' autocomplete='off' />";
-    my $host_node = $tmpl->getElementById('keywords-field')
-      or return $app->error('Cannot find the keywords field.');
+      "<div class='textarea-wrapper'><input name='canonical_url' id='canonical_url' class='full-width' value='$canonical' mt:watch-change='1' autocomplete='off' /></div>";
+    my $host_node = $tmpl->getElementById('keywords') # -fields if using emitted HTML
+      or return $app->error('Cannot find the keywords field.'); # MT ignores these errors apparently
     my $block_node = $tmpl->createElement(
         'app:setting',
         {   id    => 'canonical_url',
             label => 'Canonical URL',
+            label_class => 'top-label',
         }
     ) or return $app->error('cannot create the element');
     $block_node->innerHTML($innerHTML);
@@ -54,7 +55,7 @@ sub save_entry_canonical_url {
 
 sub entry_canonical_URL {
     my ($ctx, $args, $cond) = @_;
-    my $entry = $ctx->stash('entry');                     # error if not entry
+    my $entry = $ctx->stash('entry') or return '';                     # error if not entry
     my $canonical = $entry->canonical_url or return '';
     require URI;
     my $uri =

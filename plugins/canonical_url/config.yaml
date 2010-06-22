@@ -12,5 +12,5 @@ callbacks:
     MT::App::CMS::template_param.edit_entry: $Canonical::MT::Entry::Canonical::add_entry_canonical_url_input
     MT::App::CMS::cms_pre_save.entry: $Canonical::MT::Entry::Canonical::save_entry_canonical_url
 tags:
-    variable:
+    function:
         EntryCanonicalURL: $Canonical::MT::Entry::Canonical::entry_canonical_URL

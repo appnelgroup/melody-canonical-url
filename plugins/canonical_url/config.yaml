@@ -3,8 +3,8 @@ id: CanonicalURL
 author_link: http://appnel.com/
 author_name: The Appnel Group
 description: Implements canonical URL capabilities for an entry.
-version: 0.1
-schema_version: 0.1
+version: 0.11
+schema_version: 0.11
 object_types:
     entry:
         canonical_url: string(255)
